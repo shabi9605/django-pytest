@@ -49,18 +49,21 @@ refer to the `Pipfile [scripts]` section for [more info](https://pipenv-fork.rea
 
 ```bash
 pip install pytest pytest-django pytest-html djangorestframework djangorestframework-simplejwt
+```
+
 If using token authentication (classic DRF tokens):
 
-bash
-Copy
-Edit
+```bash
 pip install djangorestframework authtoken
-⚙️ Configure Pytest
-Create a file named pytest.ini in your project root:
+```
 
-ini
-Copy
-Edit
+---
+
+## ⚙️ Configure Pytest
+
+Create a file named `pytest.ini` in your project root:
+
+```ini
 [pytest]
 DJANGO_SETTINGS_MODULE = your_project.settings
 python_files = tests.py test_*.py *_tests.py
@@ -69,46 +72,58 @@ log_cli = true
 log_cli_level = INFO
 log_format = %(asctime)s | %(levelname)s | %(name)s | %(message)s
 log_date_format = %H:%M:%S
-🧪 Run Tests
+```
+
+---
+
+## 🧪 Run Tests
+
 Run all tests:
 
-bash
-Copy
-Edit
+```bash
 pytest
+```
+
 Re-use the same test database (faster):
 
-bash
-Copy
-Edit
+```bash
 pytest --reuse-db
-🪵 Enable Logging in Terminal
-Enable logging during test runs (if not already in pytest.ini):
+```
 
-bash
-Copy
-Edit
+---
+
+## 🪵 Enable Logging in Terminal
+
+Enable logging during test runs (if not already set in `pytest.ini`):
+
+```bash
 pytest -o log_cli=true --log-cli-level=INFO
-📝 Generate HTML Report
+```
+
+---
+
+## 📝 Generate HTML Report
+
 Create a self-contained HTML test report:
 
-bash
-Copy
-Edit
+```bash
 pytest --html=report.html --self-contained-html
+```
+
 Add metadata to the report:
 
-bash
-Copy
-Edit
-pytest --html=report.html --self-contained-html \
-  --metadata="Project: MyApp" \
-  --metadata="Tester: YourName"
-✅ Summary of Commands
+```bash
+pytest --html=report.html --self-contained-html   --metadata="Project: MyApp"   --metadata="Tester: YourName"
+```
 
-Task	Command
-Run tests	pytest
-Run with DB reuse	pytest --reuse-db
-Show logs	pytest -o log_cli=true --log-cli-level=INFO
-Generate HTML report	pytest --html=report.html --self-contained-html
-Install all packages	pip install pytest pytest-django pytest-html djangorestframework
+---
+
+## ✅ Summary of Commands
+
+| Task                   | Command                                                                 |
+|------------------------|-------------------------------------------------------------------------|
+| Run tests              | `pytest`                                                                |
+| Run with DB reuse      | `pytest --reuse-db`                                                     |
+| Show logs              | `pytest -o log_cli=true --log-cli-level=INFO`                           |
+| Generate HTML report   | `pytest --html=report.html --self-contained-html`                       |
+| Install all packages   | `pip install pytest pytest-django pytest-html djangorestframework`      |
