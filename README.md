@@ -43,9 +43,6 @@ refer to the `Pipfile [scripts]` section for [more info](https://pipenv-fork.rea
 [flake8](https://flake8.readthedocs.io/en/latest/) - for linting and ensure python best practice are meet
 [yapf](https://github.com/google/yapf) - for code formatting and provide consistent code styling
 
-
-
-
 # 🧪 Django API Testing with Pytest
 
 ## ✅ Install Required Packages
@@ -73,7 +70,7 @@ log_cli_level = INFO
 log_format = %(asctime)s | %(levelname)s | %(name)s | %(message)s
 log_date_format = %H:%M:%S
 🧪 Run Tests
-Run all tests with:
+Run all tests:
 
 bash
 Copy
@@ -86,14 +83,14 @@ Copy
 Edit
 pytest --reuse-db
 🪵 Enable Logging in Terminal
-Logs will automatically appear if log_cli = true is set in pytest.ini. Or use:
+Enable logging during test runs (if not already in pytest.ini):
 
 bash
 Copy
 Edit
 pytest -o log_cli=true --log-cli-level=INFO
 📝 Generate HTML Report
-Create a portable HTML report:
+Create a self-contained HTML test report:
 
 bash
 Copy
@@ -104,7 +101,9 @@ Add metadata to the report:
 bash
 Copy
 Edit
-pytest --html=report.html --self-contained-html --metadata="Project: MyApp" --metadata="Tester: YourName"
+pytest --html=report.html --self-contained-html \
+  --metadata="Project: MyApp" \
+  --metadata="Tester: YourName"
 ✅ Summary of Commands
 
 Task	Command
